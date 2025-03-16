@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Create a Document
+# DNS와 그 작동 원리
 
 Documents are **groups of pages** connected through:
 

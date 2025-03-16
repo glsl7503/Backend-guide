@@ -2,15 +2,20 @@
 sidebar_position: 1
 ---
 
-# Create a Page
+# 인터넷 정의
 
-Add **Markdown or React** files to `src/pages` to create a **standalone page**:
+**인터넷의 핵심 구성 요소**
 
-- `src/pages/index.js` → `localhost:3000/`
-- `src/pages/foo.md` → `localhost:3000/foo`
-- `src/pages/foo/bar.js` → `localhost:3000/foo/bar`
+- `IP 주소와 도메인 이름`
+- `클라이언트와 서버`
+- `HTPP와 HTTPS 웹 통신 프로토콜`
+- `패킷 스위칭`
+- `라우터와 경로 선택`
+- `TCP/IP 프로토콜`
+- `ISP`
+- `최종적인 데이터 전송`
 
-## Create your first React Page
+## Create your first React Page- 
 
 Create a file at `src/pages/my-react-page.js`:
 
