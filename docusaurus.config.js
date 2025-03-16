@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Backend story',
-  tagline: 'web 백엔드 관련 공부 문서',
+  title: 'backend',
+  tagline: 'Web backend study',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
