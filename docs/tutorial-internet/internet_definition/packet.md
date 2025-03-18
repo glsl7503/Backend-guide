@@ -5,7 +5,6 @@ sidebar_position: 4
 # 패킷 스위칭
 
 <aside>
-💡
 
 ### 🧩 **패킷 스위칭이란?**
 
