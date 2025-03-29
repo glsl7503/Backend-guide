@@ -1,12 +1,4 @@
-// @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
-
 import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -97,7 +89,7 @@ const config = {
             items: [
               {
                 label: 'Notion',
-                href: 'https://x.com/docusaurus',
+                href: 'https://deluxe-value-c81.notion.site/111031d25863801fbdaee49b4a8aa403?pvs=4',
               },
             ],
           },
@@ -106,7 +98,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/glsl7503/Backend-guide',
+                href: 'https://github.com/glsl7503/',
               }
             ],
           },
