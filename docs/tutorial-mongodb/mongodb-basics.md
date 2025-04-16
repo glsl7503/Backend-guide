@@ -1,56 +1,65 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# MongoDB 개요
+# 기본 사용법
 
----
+## 🧐 MongoDB 기본 명령어
 
-### 🧐 MongoDB란?
-
-MongoDB는 오픈 소스 NoSQL 데이터베이스로, **문서 지향** 저장소입니다. 데이터를 **BSON**(이진 JSON) 형식으로 저장하고, 스키마가 유연하여 다양한 데이터를 효율적으로 관리할 수 있습니다.
-
-### 💡 MongoDB의 주요 특징
-
-- **문서 지향**: 데이터를 문서 형태로 저장하며, 스키마가 유연하고 확장성이 뛰어납니다.
-- **수평 확장성**: 데이터가 많아져도 서버를 추가하여 확장이 가능하고, 성능 저하 없이 처리할 수 있습니다.
-- **고성능**: 대용량 데이터를 빠르게 처리할 수 있습니다.
-- **고가용성**: 자동 복제 기능으로 데이터 손실을 최소화하고 고가용성을 보장합니다.
+MongoDB는 **문서(Document) 기반 데이터베이스** 로, JSON과 유사한 **BSON(Binary JSON)** 형식으로 데이터를 저장하고 관리함. 여기서는 MongoDB의 **기본 CRUD 연산** 과 **Aggregation** 을 다룬다.
 
 ---
 
-### 🚀 MongoDB의 사용 사례
+### 🔹 데이터베이스 & 컬렉션
 
-- **웹 애플리케이션**: 동적 데이터와 빠른 응답 속도가 요구되는 애플리케이션에 적합합니다.
-- **빅 데이터 분석**: 대규모 데이터를 실시간으로 처리하고 분석하는 데 사용됩니다.
-- **IoT 시스템**: IoT 데이터를 효율적으로 수집하고 처리하는 데 유용합니다.
-- **콘텐츠 관리 시스템**: 다양한 형태의 콘텐츠 데이터를 관리할 때 유리합니다.
+### 📌 **데이터베이스 선택 및 생성**
 
----
+- `use myDatabase` → 데이터베이스 선택 (없으면 자동 생성)
 
-### 🛠️ MongoDB의 주요 구성 요소
+### 📌 **컬렉션 생성**
 
-- **MongoDB 서버**: 데이터를 저장하고 관리하는 서버로, 클라이언트의 요청을 처리합니다.
-- **MongoDB 클라이언트**: 서버에 연결하여 데이터를 조회하거나 수정하는 애플리케이션입니다.
-- **데이터베이스**: 데이터를 논리적으로 구분하여 저장하는 컨테이너입니다.
-- **컬렉션**: MongoDB에서 데이터를 저장하는 단위로, 여러 문서를 포함합니다.
-- **문서**: MongoDB의 기본 데이터 단위로, JSON 형태로 데이터를 저장합니다.
+- `db.createCollection("users")` → 명시적 생성 (필수 아님, 직접 데이터 삽입해도 생성됨)
 
 ---
 
-### 📝 MongoDB와 다른 NoSQL DB와의 차이점
+### 🔹 CRUD (Create, Read, Update, Delete)
 
-1. **MongoDB vs Cassandra**
-    - **데이터 모델**: MongoDB는 문서형 데이터 모델을 사용하고, Cassandra는 키-값 저장소입니다.
-    - **확장성**: 두 시스템 모두 수평 확장이 가능하지만, Cassandra는 높은 쓰기 성능을 제공합니다.
-2. **MongoDB vs Redis**
-    - **데이터 처리**: MongoDB는 데이터를 영구적으로 저장하는 반면, Redis는 메모리 기반 데이터베이스로 빠른 캐싱에 적합합니다.
-    - **목적**: MongoDB는 복잡한 데이터 구조를 관리하는 데 유용하며, Redis는 빠른 데이터 액세스를 위해 사용됩니다.
+### 🟢 **데이터 삽입 (Create)**
+
+- `db.users.insertOne({ name: "Alice", age: 25 })` → 단일 문서 삽입
+- `db.users.insertMany([{ name: "Bob", age: 30 }, { name: "Charlie", age: 35 }])` → 여러 문서 삽입
+
+### 🔵 **데이터 조회 (Read)**
+
+- `db.users.find()` → 모든 문서 조회
+- `db.users.findOne({ name: "Alice" })` → 특정 문서 조회
+- `db.users.find({ age: { $gt: 25 } })` → 조건부 조회 (`$gt`: 초과, `$lt`: 미만, `$eq`: 일치)
+
+### 🟠 **데이터 수정 (Update)**
+
+- `db.users.updateOne({ name: "Alice" }, { $set: { age: 26 } })` → 하나의 문서 수정
+- `db.users.updateMany({ age: { $gt: 30 } }, { $set: { status: "Senior" } })` → 여러 문서 수정
+
+### 🔴 **데이터 삭제 (Delete)**
+
+- `db.users.deleteOne({ name: "Charlie" })` → 하나의 문서 삭제
+- `db.users.deleteMany({ age: { $lt: 30 } })` → 여러 문서 삭제
 
 ---
 
-### 🔄 MongoDB의 강점
+### 🔹 Aggregation (집계 연산)
 
-- **스키마 유연성**: 데이터를 미리 정의된 구조에 맞게 저장할 필요 없이 자유롭게 저장할 수 있습니다.
-- **수평 확장성**: 데이터 양이 많아져도 서버를 추가하여 확장이 가능합니다.
-- **고성능**: 대량의 데이터를 빠르게 처리하고, 읽기 및 쓰기 성능이 뛰어납니다.
+MongoDB는 단순한 CRUD 연산 외에도 **Aggregation Pipeline** 을 사용해 데이터를 그룹화하고 변형할 수 있음.
+
+### 📌 **Aggregation 주요 연산자**
+
+- `$match` → 특정 조건으로 데이터 필터링
+- `$group` → 특정 필드 기준으로 데이터 그룹화
+- `$sort` → 정렬
+- `$project` → 특정 필드만 선택하여 반환
+- `$limit`, `$skip` → 페이징 처리
+
+### 📌 **Aggregation 예시**
+
+- `db.users.aggregate([{ $match: { age: { $gt: 25 } } }])` → 25세 초과 데이터만 조회
+- `db.users.aggregate([{ $group: { _id: "$status", count: { $sum: 1 } } }])` → `status` 별 데이터 개수 카운트
