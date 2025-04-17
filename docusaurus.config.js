@@ -88,8 +88,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Notion',
-                href: 'https://deluxe-value-c81.notion.site/111031d25863801fbdaee49b4a8aa403?pvs=4',
+                label: 'Discussions',
+                href: 'https://github.com/glsl7503/Backend-guide/discussions',
               },
             ],
           },
@@ -99,6 +99,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/glsl7503/',
+              },
+              {
+                label: 'Notion',
+                href: 'https://deluxe-value-c81.notion.site/111031d25863801fbdaee49b4a8aa403?pvs=4',
               }
             ],
           },
